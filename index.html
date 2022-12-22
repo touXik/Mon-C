@@ -981,6 +981,58 @@ Travel </li>
 </div>
 </div>
 </div>
+
+
+ <div class="crt-paper-layers crt-animate">
+<div class="crt-paper clear-mrg clearfix">
+<div class="crt-paper-cont paper-padd clear-mrg">
+<section id="contacts" class="section padd-box">
+<h2 class="title-lg text-upper">Contactez Moi</h2>
+<div class="padd-box-sm">
+<header class="contact-head">
+<ul class="crt-social clear-list">
+    <li><a target="_blank" href="https://www.facebook.com/toufik.medjbeur"><span class="crt-icon crt-icon-facebook"></span></a></li>
+    <li><a target="_blank" href="https://twitter.com/medjbert"><span class="crt-icon crt-icon-twitter"></span></a></li>
+    <li><a target="_blank" href="https://www.instagram.com/t_o_o_fi/"><span class="crt-icon crt-icon-instagram"></span></a></li>
+    <li><a target="_blank" href="https://github.com/touXik"><span class="crt-icon crt-icon-github"></span></a></li>
+
+</ul>
+</header>
+<h3>N'hésitez pas à me contacter pour toute question.</h3>
+<div role="form" class="wpcf7" id="wpcf7-f46-p90-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form  method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="46" />
+<input type="hidden" name="_wpcf7_version" value="5.5.4" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f46-p90-o1" />
+<input type="hidden" name="_wpcf7_container_post" value="90" />
+<input type="hidden" name="_wpcf7_posted_data_hash" value="" />
+</div>
+<p><label>Votre nom (obligatoire)<br />
+<span class="wpcf7-form-control-wrap your-name"><input id="name" type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" /></span> </label></p>
+<p><label> Votre e-mail (obligatoire)<br />
+<span class="wpcf7-form-control-wrap your-email"><input id="email" type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" /></span> </label></p>
+<p><label> Sujet<br />
+<span class="wpcf7-form-control-wrap your-subject"><input id="subject"  type="text" name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span> </label></p>
+<p><label>Votre message<br />
+<span class="wpcf7-form-control-wrap your-message"><textarea  id="message" name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span> </label></p>
+<p><input id="btn"  type="submit"  value="Envoyer"  /></p>
+
+
+
+<div class="wpcf7-response-output" aria-hidden="true"></div></form></div>
+</div>
+<!-- <div id="map" data-latitude="40.185599" data-longitude="44.515043"></div> -->
+</section> </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
 <footer id="crtFooter" class="crt-container-lg">
 <div class="crt-container">
 <div class="crt-container-sm clear-mrg text-center">
@@ -1024,6 +1076,28 @@ var certy_vars_from_WP = {"themeColor":"#1FA184","mapStyles":"[\n    {\n        
 </script>
 <script type='text/javascript' src='wp-content/themes/certy/assets/js/theme.min.js' id='certy-main-js-js'></script>
 <script type='text/javascript' src='wp-content/themes/certy/framework/backend/widgets/sticky-widget/assets/sticky-widget.js' id='sticky-js-js'></script>
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+<script>
+    var btn= document.getElementById('btn');
+     btn.addEventListener('click', function(e){
+       e.preventDefault()
+       var name = document.getElementById('name').value;
+       var email = document.getElementById('email').value;
+       var subject = document.getElementById('subject').value;
+       var message = document.getElementById('message').value;
+       var body = 'name:  '+name + '<br> <br> email: '+email+' <br><br> subject: '+subject+' <br><br> message:  '+message;
+       Email.send({
+    SecureToken : "37994d73-21fc-4ba8-a006-f5738e1b9d65",
+    To : 'toufikmedjber2@gmail.com',
+    From : 'toufikmedjber2@gmail.com',
+    Subject : subject,
+    Body : body
+}).then(
+  message => alert(message)
+);
+     })
+   </script>
 <script type="text/javascript">
 	const updateCounter = async ()=>{ 
     const data = await fetch('https://api.countapi.xyz/hit/mon-cv/vues');
@@ -1033,5 +1107,6 @@ var certy_vars_from_WP = {"themeColor":"#1FA184","mapStyles":"[\n    {\n        
 
 updateCounter();
 </script>
+
 </body>
 </html>
