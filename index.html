@@ -1141,24 +1141,46 @@ var certy_vars_from_WP = {"themeColor":"#1FA184","mapStyles":"[\n    {\n        
 <script src="https://smtpjs.com/v3/smtp.js">
 </script>
 <script>
-    var btn= document.getElementById('btn');
-     btn.addEventListener('click', function(e){
-       e.preventDefault()
-       var name = document.getElementById('name').value;
-       var email = document.getElementById('email').value;
-       var subject = document.getElementById('subject').value;
-       var message = document.getElementById('message').value;
-       var body = 'name:  '+name + '<br> <br> email: '+email+' <br><br> subject: '+subject+' <br><br> message:  '+message;
-       Email.send({
-    SecureToken : "37994d73-21fc-4ba8-a006-f5738e1b9d65",
-    To : 'toufikmedjber2@gmail.com',
-    From : 'toufikmedjber2@gmail.com',
-    Subject : subject,
-    Body : body
-}).then(
-  message => alert(message)
-);
-     })
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+    
+    // Remplacez "YOUR_EMAIL_ADDRESS" par votre adresse email
+    const to = "toufikmedjber2@gmail.com";
+    const subject = "Nouveau message de " + name;
+    const body = "De: " + email + "\n\n" + message;
+    
+    // Formate les données en URL encodées pour l'email
+    const mailtoLink = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    
+    // Ouvre le lien de l'email dans une nouvelle fenêtre
+    window.open(mailtoLink, "_blank");
+  });
+  
+
+
+
+//     var btn= document.getElementById('btn');
+//      btn.addEventListener('click', function(e){
+//        e.preventDefault()
+//        var name = document.getElementById('name').value;
+//        var email = document.getElementById('email').value;
+//        var subject = document.getElementById('subject').value;
+//        var message = document.getElementById('message').value;
+//        var body = 'name:  '+name + '<br> <br> email: '+email+' <br><br> subject: '+subject+' <br><br> message:  '+message;
+//        Email.send({
+//     SecureToken : "37994d73-21fc-4ba8-a006-f5738e1b9d65",
+//     To : 'toufikmedjber2@gmail.com',
+//     From : 'toufikmedjber2@gmail.com',
+//     Subject : subject,
+//     Body : body
+// }).then(
+//   message => alert(message)
+// );
+//      })
    </script>
 <script type="text/javascript">
 	const updateCounter = async ()=>{ 
