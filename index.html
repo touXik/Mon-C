@@ -1084,7 +1084,7 @@ Travel </li>
 <span class="wpcf7-form-control-wrap your-subject"><input id="subject"  type="text" name="your-subject" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" /></span> </label></p>
 <p><label>Votre message<br />
 <span class="wpcf7-form-control-wrap your-message"><textarea  id="message" name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"></textarea></span> </label></p>
-<p><input id="btn"  type="submit"  value="Envoyer"  /></p>
+<p><input id="btn"  type="submit"  value="Envoyer" onclick="sendMail()" /></p>
 
 
 
@@ -1139,30 +1139,62 @@ var certy_vars_from_WP = {"themeColor":"#1FA184","mapStyles":"[\n    {\n        
 <script type='text/javascript' src='wp-content/themes/certy/assets/js/theme.min.js' id='certy-main-js-js'></script>
 <script type='text/javascript' src='wp-content/themes/certy/framework/backend/widgets/sticky-widget/assets/sticky-widget.js' id='sticky-js-js'></script>
 <script src="https://smtpjs.com/v3/smtp.js">
+</script>  
+ <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
 </script>
 <script>
-   document.getElementById("contactForm").addEventListener("submit", function(event) {
-  event.preventDefault();
+ 
+ type="text/javascript">
+   (function(){
+      emailjs.init("rm5LskMNdFrkZ7kvS");
+   })();
+</script>
+<script>
+    function sendMmail(){
+      var params ={
+        name : document.getElementById("name").value,
+        email : document.getElementById("email").value,
+        subject :document.getElementById('subject').value,
+        message : document.getElementById("message").value
+
+      }
+    
+
+    const servicID = "service_aaf8zbi";
+    const templateID = "template_n0yj8f5";
+    emailjs.send(servicID,templateID,params).then((res)=>{
+        document.getElementById("name").value="";
+        document.getElementById("email").value="";
+       document.getElementById('subject').value="";
+       document.getElementById("message").value="";
+       cosole.log(res);
+       alert("message envoiyer avec succe ! merci ");
+    }).catch((err)=> console.log(err));
+}
+
+//    document.getElementById("contactForm").addEventListener("submit", function(event) {
+//   event.preventDefault();
   
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  var subjecte = document.getElementById('subject').value;
-  const message = document.getElementById("message").value;
+//   const name = document.getElementById("name").value;
+//   const email = document.getElementById("email").value;
+//   var subjecte = document.getElementById('subject').value;
+//   const message = document.getElementById("message").value;
   
-  // Remplacez "YOUR_EMAIL_ADDRESS" par votre adresse email
-  const to = "toufikmedjber2@gmail.com";
-  const subject = "Nouveau message de " + name;
-  const body = "De: " + email + "\n\n" + message;
+//   // Remplacez "YOUR_EMAIL_ADDRESS" par votre adresse email
+//   const to = "toufikmedjber2@gmail.com";
+//   const subject = "Nouveau message de " + name;
+//   const body = "De: " + email + "\n\n" + message;
   
-  // Formate les données en URL encodées pour l'email
-  const mailtoLink = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+//   // Formate les données en URL encodées pour l'email
+//   const mailtoLink = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
   
-  // Envoie l'email
-  window.location.href = mailtoLink;
+//   // Envoie l'email
+//   window.location.href = mailtoLink;
   
-  // Affiche une boîte de dialogue pour informer l'utilisateur que l'email a été envoyé
-  window.alert("L'email a été envoyé avec succès !");
-});
+//   // Affiche une boîte de dialogue pour informer l'utilisateur que l'email a été envoyé
+//   window.alert("L'email a été envoyé avec succès !");
+// });
 
   
 
