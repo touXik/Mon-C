@@ -1067,7 +1067,7 @@ Travel </li>
 <h3>N'hésitez pas à me contacter pour toute question.</h3>
 <div role="form" class="wpcf7" id="wpcf7-f46-p90-o1" lang="en-US" dir="ltr">
 <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-<form  method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
+<form id="contactForm"  method="post" class="wpcf7-form init" novalidate="novalidate" data-status="init">
 <div style="display: none;">
 <input type="hidden" name="_wpcf7" value="46" />
 <input type="hidden" name="_wpcf7_version" value="5.5.4" />
@@ -1141,24 +1141,29 @@ var certy_vars_from_WP = {"themeColor":"#1FA184","mapStyles":"[\n    {\n        
 <script src="https://smtpjs.com/v3/smtp.js">
 </script>
 <script>
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-    
-    // Remplacez "YOUR_EMAIL_ADDRESS" par votre adresse email
-    const to = "toufikmedjber2@gmail.com";
-    const subject = "Nouveau message de " + name;
-    const body = "De: " + email + "\n\n" + message;
-    
-    // Formate les données en URL encodées pour l'email
-    const mailtoLink = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    
-    // Ouvre le lien de l'email dans une nouvelle fenêtre
-    window.open(mailtoLink, "_blank");
-  });
+   document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  var subjecte = document.getElementById('subject').value;
+  const message = document.getElementById("message").value;
+  
+  // Remplacez "YOUR_EMAIL_ADDRESS" par votre adresse email
+  const to = "YOUR_EMAIL_ADDRESS";
+  const subject = "Nouveau message de " + name;
+  const body = "De: " + email + "\n\n" + message;
+  
+  // Formate les données en URL encodées pour l'email
+  const mailtoLink = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  
+  // Envoie l'email
+  window.location.href = mailtoLink;
+  
+  // Affiche une boîte de dialogue pour informer l'utilisateur que l'email a été envoyé
+  window.alert("L'email a été envoyé avec succès !");
+});
+
   
 
 
