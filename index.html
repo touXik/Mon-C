@@ -1151,7 +1151,7 @@ var certy_vars_from_WP = {"themeColor":"#1FA184","mapStyles":"[\n    {\n        
    })();
 </script>
 <script>
-    function sendMmail(){
+    function sendMail(){
       var params ={
         name : document.getElementById("name").value,
         email : document.getElementById("email").value,
@@ -1160,64 +1160,17 @@ var certy_vars_from_WP = {"themeColor":"#1FA184","mapStyles":"[\n    {\n        
 
       }
     
-
     const servicID = "service_aaf8zbi";
     const templateID = "template_n0yj8f5";
     emailjs.send(servicID,templateID,params).then((res)=>{
         document.getElementById("name").value="";
         document.getElementById("email").value="";
-       document.getElementById('subject').value="";
-       document.getElementById("message").value="";
-       cosole.log(res);
-       alert("message envoiyer avec succe ! merci ");
-    }).catch((err)=> console.log(err));
-}
-
-//    document.getElementById("contactForm").addEventListener("submit", function(event) {
-//   event.preventDefault();
-  
-//   const name = document.getElementById("name").value;
-//   const email = document.getElementById("email").value;
-//   var subjecte = document.getElementById('subject').value;
-//   const message = document.getElementById("message").value;
-  
-//   // Remplacez "YOUR_EMAIL_ADDRESS" par votre adresse email
-//   const to = "toufikmedjber2@gmail.com";
-//   const subject = "Nouveau message de " + name;
-//   const body = "De: " + email + "\n\n" + message;
-  
-//   // Formate les données en URL encodées pour l'email
-//   const mailtoLink = "mailto:" + to + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-  
-//   // Envoie l'email
-//   window.location.href = mailtoLink;
-  
-//   // Affiche une boîte de dialogue pour informer l'utilisateur que l'email a été envoyé
-//   window.alert("L'email a été envoyé avec succès !");
-// });
-
-  
-
-
-
-//     var btn= document.getElementById('btn');
-//      btn.addEventListener('click', function(e){
-//        e.preventDefault()
-//        var name = document.getElementById('name').value;
-//        var email = document.getElementById('email').value;
-//        var subject = document.getElementById('subject').value;
-//        var message = document.getElementById('message').value;
-//        var body = 'name:  '+name + '<br> <br> email: '+email+' <br><br> subject: '+subject+' <br><br> message:  '+message;
-//        Email.send({
-//     SecureToken : "37994d73-21fc-4ba8-a006-f5738e1b9d65",
-//     To : 'toufikmedjber2@gmail.com',
-//     From : 'toufikmedjber2@gmail.com',
-//     Subject : subject,
-//     Body : body
-// }).then(
-//   message => alert(message)
-// );
-//      })
+        document.getElementById('subject').value="";
+        document.getElementById("message").value="";
+        cosole.log(res);
+        alert("message envoiyer avec succe ! merci ");
+        }).catch((err)=> console.log(err));
+    }
    </script>
 <script type="text/javascript">
 	const updateCounter = async ()=>{ 
